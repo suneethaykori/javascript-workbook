@@ -37,7 +37,7 @@ function pigLatin(word) {
       return newWord;
     }
   }
-  return newWord; // returning word that has no vowel
+  return word; // returning word that has no vowel
 }
 
 
@@ -54,6 +54,7 @@ if (typeof describe === 'function') {
 
   describe('#pigLatin()', () => {
     it('should translate a simple word', () => {
+      assert.equal(pigLatin('bbb'), 'bbb');
       assert.equal(pigLatin('car'), 'arcay');
       assert.equal(pigLatin('dog'), 'ogday');
     });
