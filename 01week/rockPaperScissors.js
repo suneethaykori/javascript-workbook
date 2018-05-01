@@ -9,15 +9,25 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+  // remove the spaces and then convert to LowerCase
+  hand1 = (hand1.trim()).toLowerCase(); 
+  hand2 = (hand2.trim()).toLowerCase();
 
-  // Write code here
-
+  if (hand1 === hand2) { // hand1 and hand2 are the same
+    return ('It\'s a tie!');
+  }
+  //Cases where hand1 wins
+  else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'paper' && hand2 === 'rock') || (hand1 === 'scissors' && hand2 === 'paper')) {
+    return ('Hand one wins!');
+  } else { //All other cases Hand2 wins
+    return ('Hand two wins!');
+  }
 }
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
