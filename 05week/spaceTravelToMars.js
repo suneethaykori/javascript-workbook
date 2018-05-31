@@ -12,13 +12,15 @@ let jobTypes = {
 // Your code here
 class CrewMember {
   constructor(name, job, specialSkill, ship) {
+    //Set all the initial values
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = ship;
   }
   //enterShip = (ship) =>{
-  enterShip(ship) {
+  enterShip(ship){
+    //Set the ship data
     this.ship = ship;
     ship.crew[0] = this;
   }
@@ -27,13 +29,16 @@ class CrewMember {
 
 class Ship {
   constructor(name, type, ability) {
+    //Set all the initial values
     this.name = name;
     this.type = type;
     this.ability = ability;
     this.crew = [];
   }
   //missionStatement = () => {
-  missionStatement() {
+  missionStatement(){
+    //If no crew return - Can't perform a mission yet.
+    //else return the ability
     if (this.crew.length === 0)
       return "Can't perform a mission yet.";
     else {
