@@ -62,7 +62,7 @@ const findAtx = (nums) => {
       return true;
     }
   })
-  return atxIdx;
+  console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 }
-//console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
-console.log(findAtx(nums));
+//
+findAtx(nums);
