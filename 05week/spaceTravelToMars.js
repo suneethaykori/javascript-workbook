@@ -22,7 +22,7 @@ class CrewMember {
   enterShip(ship){
     //Set the ship data
     this.ship = ship;
-    ship.crew[0] = this;
+    ship.crew[ship.crew.length] = this;
   }
 }
 
