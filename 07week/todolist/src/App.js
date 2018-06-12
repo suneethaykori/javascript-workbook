@@ -10,10 +10,12 @@ class App extends Component {
        itemInput: '',
     };
 
+    //Adding the input to the list
     handleInput(e){
       this.setState({itemInput:e.target.value})
     }
 
+    //Turn the checkbox checked or not
     handleCheck(i, event){
       /*alert(i)*/
       const list = this.state.list;
@@ -22,6 +24,7 @@ class App extends Component {
     }
 
     renderList(){
+      //if checkbox is checked then stike the list item else item remains
         return this.state.list.map((element, index) => {
             return (
                 <p style={{'textDecoration':element.isDone ? 'line-through' : 'none'}}><input type="checkbox" name="" value="" id="CB" key={element.id} onClick={this.handleCheck.bind(this, element.id)}/> {element.item} </p>
@@ -29,12 +32,14 @@ class App extends Component {
         })
     }
 
+    //Show the button when there is input
     renderSubmit(){
       if(this.state.itemInput){
         return <button onClick ={()=> this.handleSubmit()}>Add Item </button>
       }
     }
 
+    //Add the new item to the list
     handleSubmit(){
       const newItem ={
         id: this.state.list.length,
