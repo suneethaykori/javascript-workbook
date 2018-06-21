@@ -36,6 +36,14 @@ class App extends Component {
       }
     }
 
+    handleReset(){
+      this.setState({
+        squares: Array(9).fill(null),
+        player: "O",
+        gameOver: false
+      });
+
+    }
     winCheck(gameState) {
       //winnning combinations
       const winCombos = [
@@ -66,25 +74,30 @@ class App extends Component {
     }
 
   render() {
+    const nextPlayer = "It is " + this.state.player + " turn."
     return (
       <div id="board">
         <div id="status">{this.state.gameOver? "Game Over!" : "Tic Tac Toe"}</div>
-        <div class="board-row">
-          <button onClick={() => this.handleClick(0)}> {this.state.squares[0]} </button>
-          <button onClick={() => this.handleClick(1)}> {this.state.squares[1]} </button>
-          <button onClick={() => this.handleClick(2)}> {this.state.squares[2]} </button>
+        <div id="status">{this.state.gameOver? " " : nextPlayer}</div>
+        <div className="board-row">
+          <button className="button1" onClick={() => this.handleClick(0)}> {this.state.squares[0]} </button>
+          <button className="button1" onClick={() => this.handleClick(1)}> {this.state.squares[1]} </button>
+          <button className="button1" onClick={() => this.handleClick(2)}> {this.state.squares[2]} </button>
         </div>
-        <div class="board-row">
-        <button onClick={() => this.handleClick(3)}> {this.state.squares[3]} </button>
-        <button onClick={() => this.handleClick(4)}> {this.state.squares[4]} </button>
-        <button onClick={() => this.handleClick(5)}> {this.state.squares[5]} </button>
+        <div className="board-row">
+        <button className="button1" onClick={() => this.handleClick(3)}> {this.state.squares[3]} </button>
+        <button className="button1" onClick={() => this.handleClick(4)}> {this.state.squares[4]} </button>
+        <button className="button1" onClick={() => this.handleClick(5)}> {this.state.squares[5]} </button>
 
         </div>
-        <div class="board-row">
-        <button onClick={() => this.handleClick(6)}> {this.state.squares[6]} </button>
-        <button onClick={() => this.handleClick(7)}> {this.state.squares[7]} </button>
-        <button onClick={() => this.handleClick(8)}> {this.state.squares[8]} </button>
+        <div className="board-row">
+        <button className="button1" onClick={() => this.handleClick(6)}> {this.state.squares[6]} </button>
+        <button className="button1" onClick={() => this.handleClick(7)}> {this.state.squares[7]} </button>
+        <button className="button1" onClick={() => this.handleClick(8)}> {this.state.squares[8]} </button>
         </div>
+
+        <button id="status" onClick={() => this.handleReset()}> "Reset" </button>
+
       </div>
     );
   }
